@@ -161,3 +161,9 @@ BOARD_USES_FIMGAPI_V5X := true
 # SCALER
 BOARD_USES_DEFAULT_CSC_HW_SCALER := true
 BOARD_USES_SCALER_M2M1SHOT := true
+
+# Backlight
+BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
+
+# Seccomp filters
+BOARD_SECCOMP_POLICY += $(LOCAL_PATH)/seccomp
