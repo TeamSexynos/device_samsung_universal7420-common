@@ -55,4 +55,6 @@ extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
 BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
 
+patchelf --replace-needed libgui.so libsensor.so $BLOB_ROOT/bin/gpsd
+
 "$MY_DIR"/setup-makefiles.sh
