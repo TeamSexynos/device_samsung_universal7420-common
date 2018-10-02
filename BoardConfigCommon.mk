@@ -173,3 +173,6 @@ BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/etc/fstab.samsungexynos7420
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
