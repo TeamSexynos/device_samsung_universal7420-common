@@ -111,6 +111,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl
 
+# Mobicore
+PRODUCT_PACKAGES += \
+    mcDriverDaemon \
+    libMcClient \
+    libMcRegistry
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
