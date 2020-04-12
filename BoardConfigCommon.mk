@@ -176,3 +176,7 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/etc/fstab.samsungexynos7420
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+
+# Shim
+TARGET_LD_SHIM_LIBS += \
+    /system/bin/mediaserver|/vendor/lib/libstagefright_shim.so
