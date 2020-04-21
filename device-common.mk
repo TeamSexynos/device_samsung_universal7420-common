@@ -56,6 +56,10 @@ PRODUCT_PACKAGES += \
     libbauthtzcommon_shim \
     android.hardware.biometrics.fingerprint@2.1-service.samsung
 
+# Flat device tree for boot image
+PRODUCT_HOST_PACKAGES += \
+    dtbhtoolExynos
+
 # Graphics
 PRODUCT_PACKAGES += \
     libion \
