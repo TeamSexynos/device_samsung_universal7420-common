@@ -112,6 +112,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.samsungexynos7420 \
+    init.battery.rc \
+    init.power.rc \
+    init.samsungexynos7420.rc \
+    init.samsungexynos7420.usb.rc \
+    init.sensors.rc \
+    init.recovery.samsungexynos7420.rc \
+    ueventd.samsungexynos7420.rc
+
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
