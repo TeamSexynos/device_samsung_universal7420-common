@@ -153,6 +153,22 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
+# Radio
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full \
+    libsecril-client \
+    modemloader \
+    libxml2 \
+    rild \
+    libril \
+    libreference-ril \
+    libsecril-client-sap \
+    android.hardware.radio@1.1 \
+    android.hardware.radio.deprecated@1.0
+
+PRODUCT_COPY_FILES += \
+    device/samsung/universal7420-common/configs/init/rild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rild.rc
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7420 \
