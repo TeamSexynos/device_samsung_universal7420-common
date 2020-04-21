@@ -261,3 +261,6 @@ PRODUCT_COPY_FILES += \
 # Call Samsung LSI repos
 $(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
 $(call inherit-product, hardware/samsung_slsi/exynos7420/exynos7420.mk)
+
+# Call proprietary vendor
+$(call inherit-product, vendor/samsung/universal7420-common/universal7420-common-vendor.mk)
