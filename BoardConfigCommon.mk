@@ -165,5 +165,8 @@ BOARD_USES_SCALER_M2M1SHOT := true
 # Backlight
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/etc/fstab.samsungexynos7420
+
 # Seccomp filters
 BOARD_SECCOMP_POLICY += $(LOCAL_PATH)/seccomp
