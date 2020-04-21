@@ -257,3 +257,7 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
+
+# Call Samsung LSI repos
+$(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos7420/exynos7420.mk)
