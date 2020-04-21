@@ -28,6 +28,7 @@ TARGET_BOARD_PLATFORM := exynos5
 TARGET_SLSI_VARIANT := cm
 TARGET_SOC := exynos7420
 TARGET_BOOTLOADER_BOARD_NAME := universal7420
+BOARD_VENDOR := samsung
 
 # CPU
 TARGET_ARCH := arm64
@@ -43,6 +44,10 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+
+# Audio
+USE_XML_AUDIO_POLICY_CONF := 1
+AUDIOSERVER_MULTILIB := 32
 
 # Binder
 TARGET_USES_64_BIT_BINDER := true
@@ -120,6 +125,9 @@ BOARD_USES_SCALER := true
 
 # HWCServices - requires framework support
 #BOARD_USES_HWC_SERVICES := true
+
+# Samsung HALs
+TARGET_AUDIOHAL_VARIANT := samsung
 
 # WiFiDisplay
 #BOARD_USES_VIRTUAL_DISPLAY := true - depends on platform changes
