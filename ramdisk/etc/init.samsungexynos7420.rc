@@ -246,24 +246,6 @@ on boot
     chown system system /efs/sec_efs/ssp_data
     chmod 0644 /efs/sec_efs/ssp_data
 
-# DRK permission
-    mkdir /efs/prov 0770 radio system
-    mkdir /efs/prov_data 0770 radio system
-    chown radio system /efs/prov_data/dev_root
-    chmod 0770 /efs/prov_data/dev_root
-    chown radio system /efs/prov_data/knox
-    chmod 0770 /efs/prov_data/knox
-    chown radio system /efs/prov_data/dev_root/dev_root.dat
-    chmod 0640 /efs/prov_data/dev_root/dev_root.dat
-    chown radio system /efs/prov/libdevkm.lock
-    chmod 0660 /efs/prov/libdevkm.lock
-    write /efs/prov/ffffffff00000000000000000000000c.tlbin 0
-    chown radio system /efs/prov/ffffffff00000000000000000000000c.tlbin
-    chmod 0660 /efs/prov/ffffffff00000000000000000000000c.tlbin
-
-# CS socket
-    mkdir /dev/socket/cs_socket 0770 system system
-
 # MSP FactoryApp
     mkdir /efs/FactoryApp 0775 system system
 
