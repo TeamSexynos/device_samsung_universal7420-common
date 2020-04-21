@@ -55,7 +55,6 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    libbauthtzcommon_shim \
     android.hardware.biometrics.fingerprint@2.1-service.samsung
 
 # Flat device tree for boot image
@@ -141,6 +140,13 @@ PRODUCT_PACKAGES += \
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
+
+# Shims
+PRODUCT_PACKAGES += \
+    libcamera_client_shim \
+    libexynoscamera_shim \
+    libstagefright_shim \
+    libbauthtzcommon_shim
 
 # TextClassifier
 PRODUCT_PACKAGES += \
