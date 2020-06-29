@@ -156,6 +156,7 @@ BOARD_USES_SCALER := true
 
 # Samsung HALs
 TARGET_AUDIOHAL_VARIANT := samsung
+TARGET_POWERHAL_VARIANT := samsung
 
 # WiFiDisplay
 #BOARD_USES_VIRTUAL_DISPLAY := true - depends on platform changes
