@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-#include <utils/String8.h>
-#include <hardware/hardware.h>
-#include <hardware/camera.h>
-#include <camera/Camera.h>
-#include <camera/CameraParameters.h>
+#include <hardware/camera3.h>
 
-static android::Mutex gCameraWrapperLock;
-
+int camera3_device_open(const hw_module_t *module, const char *name, hw_device_t **device);

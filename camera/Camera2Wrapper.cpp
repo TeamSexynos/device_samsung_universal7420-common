@@ -57,8 +57,6 @@ typedef struct wrapper_camera2_device {
 #define CAMERA_ID(device) (((wrapper_camera2_device_t *)(device))->id)
 
 static camera_module_t *gVendorModule = 0;
-static preview_stream_ops *gPreviewWindow = 0;
-static bool gPreviewStartDeferred = false;
 
 static int check_vendor_module()
 {
@@ -78,7 +76,12 @@ static int check_vendor_module()
  * Camera2 wrapper fixup functions
  *******************************************************************/
 
-static char * camera2_fixup_getparams(int id __unused, const char * settings) {
+static char * camera2_fixup_getparams(int id __unused, const char * settings)
+{
+    bool videoMode = false;
+    const char* isoMode;
+    char *manipBuf;
+
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
@@ -86,6 +89,8 @@ static char * camera2_fixup_getparams(int id __unused, const char * settings) {
     ALOGV("%s: Original parameters:", __FUNCTION__);
     params.dump();
 #endif
+
+    params.set("video-size-values", "3840x2160,2560x1440,1920x1080,1440x1080,1088x1088,1280x720,960x720,800x450,720x480,640x480,480x320,352x288,320x240,256x144,176x144");
 
 #ifdef LOG_PARAMETERS
     ALOGV("%s: Fixed parameters:", __FUNCTION__);
@@ -98,7 +103,11 @@ static char * camera2_fixup_getparams(int id __unused, const char * settings) {
     return ret;
 }
 
-static char * camera2_fixup_setparams(int id __unused, const char * settings) {
+static char * camera2_fixup_setparams(int id __unused, const char * settings)
+{
+    bool videoMode = false;
+    const char* isoMode;
+
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
@@ -125,25 +134,12 @@ static char * camera2_fixup_setparams(int id __unused, const char * settings) {
 static int camera2_set_preview_window(struct camera_device * device,
         struct preview_stream_ops *window)
 {
-    int rc = 0;
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device, (uintptr_t)(((wrapper_camera2_device_t*)device)->vendor));
 
     if(!device)
         return -EINVAL;
 
-    gPreviewWindow = window;
-
-    if (gPreviewWindow != 0) {
-        rc = VENDOR_CALL(device, set_preview_window, window);
-
-        if (gPreviewStartDeferred) {
-            ALOGV("%s call deferred start_preview", __FUNCTION__);
-            gPreviewStartDeferred = false;
-            VENDOR_CALL(device, start_preview);
-        }
-    }
-
-    return rc;
+    return VENDOR_CALL(device, set_preview_window, window);
 }
 
 atomic_int BlockCbs;
@@ -266,14 +262,7 @@ static int camera2_start_preview(struct camera_device * device)
     if(!device)
         return -EINVAL;
 
-    if (gPreviewWindow != 0) {
-        rc = VENDOR_CALL(device, start_preview);
-    } else {
-        ALOGV("%s invalid preview window, defer start_preview", __FUNCTION__);
-        gPreviewStartDeferred = true;
-    }
-
-    return rc;
+    return VENDOR_CALL(device, start_preview);
 }
 
 static void camera2_stop_preview(struct camera_device * device)
@@ -302,12 +291,7 @@ static int camera2_preview_enabled(struct camera_device * device)
     if(!device)
         return -EINVAL;
 
-    if (gPreviewStartDeferred) {
-        ALOGV("%s deferred start_preview, return 1", __FUNCTION__);
-        return 1;
-    } else {
-        return VENDOR_CALL(device, preview_enabled);
-    }
+    return VENDOR_CALL(device, preview_enabled);
 }
 
 static int camera2_store_meta_data_in_buffers(struct camera_device * device, int enable)
@@ -325,7 +309,7 @@ static int camera2_start_recording(struct camera_device * device)
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device, (uintptr_t)(((wrapper_camera2_device_t*)device)->vendor));
 
     if(!device)
-        return EINVAL;
+        return -EINVAL;
 
     return VENDOR_CALL(device, start_recording);
 }
@@ -336,7 +320,6 @@ static void camera2_stop_recording(struct camera_device * device)
 
     if(!device)
         return;
-
 
     VENDOR_CALL(device, stop_recording);
 }
@@ -526,8 +509,6 @@ static int camera2_device_close(hw_device_t* device)
         free(wrapper_dev->base.ops);
     free(wrapper_dev);
 done:
-    gPreviewWindow = 0;
-    gPreviewStartDeferred = false;
 
     /* Exit our callback dispatch thread */
     cbThread.ExitThread();
@@ -586,7 +567,7 @@ int camera2_device_open(const hw_module_t* module, const char* name,
         memset(camera2_device, 0, sizeof(*camera2_device));
         camera2_device->id = cameraid;
 
-        rv = gVendorModule->common.methods->open((const hw_module_t*)gVendorModule, name,(hw_device_t**)&(camera2_device->vendor));
+        rv = gVendorModule->open_legacy((const hw_module_t*)gVendorModule, name, CAMERA_DEVICE_API_VERSION_1_0, (hw_device_t**)&(camera2_device->vendor));
         if (rv)
         {
             ALOGE("vendor camera open fail");

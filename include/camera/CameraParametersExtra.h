@@ -77,4 +77,3 @@
     static const char KEY_PHASE_AF[]; \
     static const char KEY_SUPPORTED_RT_HDR[]; \
     static const char KEY_RT_HDR[];
-
