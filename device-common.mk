@@ -41,6 +41,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    Snap \
     camera.exynos5 \
     android.hardware.camera.provider@2.4-impl
 
