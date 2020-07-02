@@ -22,17 +22,20 @@
 
 #include "CameraWrapper.h"
 #include "Camera2Wrapper.h"
+#include "Camera3Wrapper.h"
+
+static camera_module_t *gVendorModule = 0;
 
 static int camera_device_open(const hw_module_t* module, const char* name,
-                hw_device_t** device);
+        hw_device_t** device);
 static int camera_get_number_of_cameras(void);
 static int camera_get_camera_info(int camera_id, struct camera_info *info);
 static int camera_set_callbacks(const camera_module_callbacks_t *callbacks);
 static void camera_get_vendor_tag_ops(vendor_tag_ops_t* ops);
-static int camera_open_legacy(const struct hw_module_t* module, const char* id, uint32_t halVersion, struct hw_device_t** device);
+static int camera_open_legacy(const struct hw_module_t* module, const char* id,
+        uint32_t halVersion, struct hw_device_t** device);
 static int camera_set_torch_mode(const char* camera_id, bool enabled);
-
-static camera_module_t *gVendorModule = 0;
+static int camera_init();
 
 static int check_vendor_module()
 {
@@ -58,7 +61,7 @@ camera_module_t HAL_MODULE_INFO_SYM = {
          .module_api_version = CAMERA_MODULE_API_VERSION_2_4,
          .hal_api_version = HARDWARE_HAL_API_VERSION,
          .id = CAMERA_HARDWARE_MODULE_ID,
-         .name = "universal7580 Camera Wrapper",
+         .name = "Zero Camera Wrapper",
          .author = "The LineageOS Project",
          .methods = &camera_module_methods,
          .dso = NULL,
@@ -69,8 +72,8 @@ camera_module_t HAL_MODULE_INFO_SYM = {
     .set_callbacks = camera_set_callbacks,
     .get_vendor_tag_ops = camera_get_vendor_tag_ops,
     .open_legacy = camera_open_legacy,
-    .set_torch_mode = camera_set_torch_mode,
-    .init = NULL,
+    .set_torch_mode = camera_set_torch_mode, 
+    .init = camera_init,
     .reserved = {0},
 };
 
@@ -82,7 +85,7 @@ static int camera_device_open(const hw_module_t* module, const char* name,
     if (name != NULL) {
         if (check_vendor_module())
             return -EINVAL;
-        rv = camera2_device_open(module, name, device);
+        rv = camera3_device_open(module, name, device);
     }
 
     return rv;
@@ -122,7 +125,6 @@ static void camera_get_vendor_tag_ops(vendor_tag_ops_t* ops)
 
 static int camera_open_legacy(const struct hw_module_t* module, const char* id, uint32_t halVersion, struct hw_device_t** device)
 {
-    (void)halVersion;
     ALOGV("%s", __FUNCTION__);
     if (check_vendor_module())
         return 0;
@@ -135,4 +137,12 @@ static int camera_set_torch_mode(const char* camera_id, bool enabled)
     if (check_vendor_module())
         return 0;
     return gVendorModule->set_torch_mode(camera_id, enabled);
+}
+
+static int camera_init()
+{
+    ALOGV("%s", __FUNCTION__);
+    if (check_vendor_module())
+        return 0;
+    return gVendorModule->init();
 }
