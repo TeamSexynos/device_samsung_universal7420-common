@@ -199,4 +199,6 @@ TARGET_LD_SHIM_LIBS += \
     /system/bin/mediaserver|/vendor/lib/libstagefright_shim.so \
     /system/lib/libcamera_client.so|/vendor/lib/libcamera_client_shim.so \
     /system/lib/libstagefright.so|/vendor/lib/libstagefright_shim.so \
-    /system/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so
+    /system/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so \
+    /system/lib/libsec-ril.so|/vendor/lib/libcutils_shim.so \
+    /system/lib/libsec-ril-dsds.so|/vendor/lib/libcutils_shim.so

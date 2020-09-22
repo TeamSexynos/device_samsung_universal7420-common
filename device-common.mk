@@ -241,7 +241,8 @@ PRODUCT_PACKAGES += \
     libcamera_client_shim \
     libexynoscamera_shim \
     libstagefright_shim \
-    libbauthtzcommon_shim
+    libbauthtzcommon_shim \
+    libcutils_shim
 
 # TextClassifier
 PRODUCT_PACKAGES += \
