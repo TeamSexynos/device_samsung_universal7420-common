@@ -228,10 +228,10 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/lhd/lhd.conf:system/etc/lhd.conf \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml \
-    $(LOCAL_PATH)/configs/gps/gnss.conf:system/etc/gnss.conf \
-    $(LOCAL_PATH)/configs/sensors/lhd.conf:system/etc/lhd.conf
+    $(LOCAL_PATH)/configs/gps/gnss.conf:system/etc/gnss.conf
 
 # Shims
 PRODUCT_PACKAGES += \
