@@ -17,6 +17,7 @@
 LOCAL_PATH := device/samsung/universal7420-common
 
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
 
 BUILD_TOP := $(shell pwd)
 
