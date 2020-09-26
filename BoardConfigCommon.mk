@@ -93,6 +93,9 @@ TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/config.fs
 # Manifest
 DEVICE_MANIFEST_FILE += device/samsung/universal7420-common/manifest.xml
 
+# Properties
+TARGET_SYSTEM_PROP += device/samsung/universal7420-common/system.prop
+
 # Exclude AudioFX
 TARGET_EXCLUDES_AUDIOFX := true
 
