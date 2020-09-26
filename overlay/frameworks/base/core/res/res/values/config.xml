@@ -308,11 +308,6 @@
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
-    <!-- Safe headphone volume index. When music stream volume is below this index
-         the SPL on headphone output is compliant to EN 60950 requirements for portable music
-         players. -->
-    <integer name="config_safe_media_volume_index">7</integer>
-
     <!-- If device supports corner radius on windows.
          This should be turned off on low-end devices to improve animation performance. -->
     <bool name="config_supportsRoundedCornersOnWindows">false</bool>
