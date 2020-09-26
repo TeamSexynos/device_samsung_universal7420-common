@@ -230,7 +230,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml \
-    $(LOCAL_PATH)/configs/gps/gnss.conf:system/etc/gnss.conf
+    $(LOCAL_PATH)/configs/gps/gnss.conf:system/etc/gnss.conf \
+    $(LOCAL_PATH)/configs/sensors/lhd.conf:system/etc/lhd.conf
 
 # Shims
 PRODUCT_PACKAGES += \
