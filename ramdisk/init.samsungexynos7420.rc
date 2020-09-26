@@ -502,7 +502,7 @@ on fs
     chown system radio /sys/class/sensors/grip_sensor/mode
     chown system radio /sys/class/sensors/grip_sensor/gain
     chown system radio /sys/class/sensors/grip_sensor/start
-    chown syem radio /sys/class/sensors/grip_sensor/slope
+    chown system radio /sys/class/sensors/grip_sensor/slope
     chown system radio /sys/class/sensors/grip_sensor/temp
     chown system radio /sys/class/sensors/grip_sensor/temp_cal
     chown system radio /sys/class/sensors/grip_sensor/capmain
