@@ -4,8 +4,9 @@ import init.baseband.rc
 import init.carrier.rc
 import init.power.rc
 import init.battery.rc
-import init.sensors.rc
 import init.rilchip.rc
+import init.sensors.rc
+import init.nexus.rc
 
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
@@ -148,13 +149,6 @@ on post-fs-data
     chown radio system /efs/mc/mc.dat
     chmod 0640 /efs/mc/mc.dat
 
-# Professioanl Audio
-    mkdir /data/misc/jack 0770 jack system
-    mkdir /dev/socket/jack 0771 jack system
-
-# Samsung Pay
-    mkdir /efs/pfw_data 0760 spay spay
-
 # h2k
     mkdir /efs/cpk 0771 radio system
     chmod 0644 /efs/redata.bin
@@ -192,10 +186,6 @@ on post-fs-data
     mkdir /dev/socket/uibc 0777 media system
     chown media system /dev/socket/uibc
     chmod 0775 /dev/socket/uibc
-
-# Vibetonz
-    chmod 0660 /dev/tspdrv
-    chown vibe vibe /dev/tspdrv
 
 # for BT MAC address
     mkdir /efs/bluetooth 0775 radio system
@@ -512,7 +502,7 @@ on fs
     chown system radio /sys/class/sensors/grip_sensor/mode
     chown system radio /sys/class/sensors/grip_sensor/gain
     chown system radio /sys/class/sensors/grip_sensor/start
-    chown system radio /sys/class/sensors/grip_sensor/slope
+    chown syem radio /sys/class/sensors/grip_sensor/slope
     chown system radio /sys/class/sensors/grip_sensor/temp
     chown system radio /sys/class/sensors/grip_sensor/temp_cal
     chown system radio /sys/class/sensors/grip_sensor/capmain
@@ -593,10 +583,6 @@ on fs
 # NFC_SLSI
     chmod 0660 /dev/sec-nfc
     chown nfc nfc /dev/sec-nfc
-
-# MST/NFC Switch
-    chown spay system /dev/mst_ctrl
-    chmod 0660 /dev/mst_ctrl
 
 # permission for TSP, Touchkey and Wacom
     chown system radio /sys/class/sec/tsp/cmd
@@ -725,3 +711,4 @@ on shutdown
     # Fix permissions then store the current batt_capacity_max value in the EFS partition
     chmod 600 /sys/class/power_supply/battery/batt_capacity_max
     copy /sys/class/power_supply/battery/batt_capacity_max /efs/Battery/prev_batt_capacity_max
+
