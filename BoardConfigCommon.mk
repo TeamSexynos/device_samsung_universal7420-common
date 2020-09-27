@@ -95,6 +95,9 @@ DEVICE_MANIFEST_FILE += device/samsung/universal7420-common/manifest.xml
 # Properties
 TARGET_SYSTEM_PROP += device/samsung/universal7420-common/system.prop
 
+# Sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
+
 # Exclude AudioFX
 TARGET_EXCLUDES_AUDIOFX := true
 
