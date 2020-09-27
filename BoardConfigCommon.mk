@@ -89,6 +89,9 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ROOT_EXTRA_FOLDERS += efs
 TARGET_FS_CONFIG_GEN := device/samsung/universal7420-common/config.fs
 
+# HIDL
+PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
+
 # Manifest
 DEVICE_MANIFEST_FILE += device/samsung/universal7420-common/manifest.xml
 
