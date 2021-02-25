@@ -1,0 +1,95 @@
+# All blobs here are from G920FXXS6ETI6
+
+# Camera
+lib/libhwjpeg.so
+lib/libuniplugin.so
+lib/libsensorlistener.so
+lib64/libhwjpeg.so
+lib64/libuniplugin.so
+lib64/libsensorlistener.so
+lib/hw/camera.exynos5.so:lib/hw/camera.vendor.universal7420.so
+lib64/hw/camera.exynos5.so:lib64/hw/camera.vendor.universal7420.so
+
+# Media
+vendor/firmware/mfc_fw.bin
+
+# Mobicore
+app/FFFFFFFF000000000000000000000001.drbin:vendor/app/FFFFFFFF000000000000000000000001.drbin
+app/mcRegistry/ffffffff00000000000000000000000b.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000000b.tlbin
+app/mcRegistry/ffffffff00000000000000000000000e.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000000e.tlbin
+app/mcRegistry/ffffffff00000000000000000000001f.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000001f.tlbin
+app/mcRegistry/ffffffff00000000000000000000003e.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000003e.tlbin
+app/mcRegistry/00060308060501020000000000000000.tlbin:vendor/app/mcRegistry/00060308060501020000000000000000.tlbin
+app/mcRegistry/ffffffffd00000000000000000000016.tlbin:vendor/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
+app/mcRegistry/ffffffff000000000000000000000038.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000038.tlbin
+app/mcRegistry/ffffffffd0000000000000000000000e.tlbin:vendor/app/mcRegistry/ffffffffd0000000000000000000000e.tlbin
+app/mcRegistry/ffffffff000000000000000000000021.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000021.tlbin
+app/mcRegistry/08130000000000000000000000000000.tlbin:vendor/app/mcRegistry/08130000000000000000000000000000.tlbin
+app/mcRegistry/ffffffff00000000000000000000000d.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000000d.tlbin
+app/mcRegistry/ffffffff000000000000000000000017.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000017.tlbin
+app/mcRegistry/ffffffff000000000000000000000004.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000004.tlbin
+app/mcRegistry/ffffffffd0000000000000000000000a.tlbin:vendor/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
+app/mcRegistry/ffffffff000000000000000000000013.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000013.tlbin
+app/mcRegistry/ffffffff000000000000000000000016.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000016.tlbin
+app/mcRegistry/fffffffff0000000000000000000001e.tlbin:vendor/app/mcRegistry/fffffffff0000000000000000000001e.tlbin
+app/mcRegistry/ffffffffd00000000000000000000004.tlbin:vendor/app/mcRegistry/ffffffffd00000000000000000000004.tlbin
+app/mcRegistry/ffffffffd00000000000000000000017.tlbin:vendor/app/mcRegistry/ffffffffd00000000000000000000017.tlbin
+app/mcRegistry/07010000000000000000000000000000.tlbin:vendor/app/mcRegistry/07010000000000000000000000000000.tlbin
+app/mcRegistry/ffffffff00000000000000000000000a.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000000a.tlbin
+app/mcRegistry/ffffffff000000000000000000000014.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000014.tlbin
+app/mcRegistry/07060000000000000000000000000000.tlbin:vendor/app/mcRegistry/07060000000000000000000000000000.tlbin
+app/mcRegistry/ffffffff00000000000000000000000f.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000000f.tlbin
+app/mcRegistry/ffffffff00000000000000000000002a.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000002a.tlbin
+app/mcRegistry/ffffffffd00000000000000000000014.tlbin:vendor/app/mcRegistry/ffffffffd00000000000000000000014.tlbin
+app/mcRegistry/fffffffff0000000000000000000001b.tlbin:vendor/app/mcRegistry/fffffffff0000000000000000000001b.tlbin
+app/mcRegistry/ffffffff00000000000000000000000c.tlbin:vendor/app/mcRegistry/ffffffff00000000000000000000000c.tlbin
+app/mcRegistry/ffffffff000000000000000000000012.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000012.tlbin
+app/mcRegistry/ffffffff000000000000000000000041.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000041.tlbin
+app/mcRegistry/ffffffff000000000000000000000019.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000019.tlbin
+app/mcRegistry/ffffffff000000000000000000000005.tlbin:vendor/app/mcRegistry/ffffffff000000000000000000000005.tlbin
+
+# RIL
+lib/libsec-ril.so
+lib/libsec-ril-dsds.so
+lib64/libsec-ril.so
+lib64/libsec-ril-dsds.so
+
+# Sensors
+bin/bcm_sensorhub_a2.patch
+bin/lhd
+lib/hw/sensors.universal7420.so
+lib64/hw/sensors.universal7420.so
+lib/hw/sensorhubs.universal7420.so
+lib64/hw/sensorhubs.universal7420.so
+lib/libsensorservice.so
+lib64/libsensorservice.so
+
+# GPS
+bin/gpsd:vendor/bin/gpsd
+bin/gps.cer:vendor/bin/gps.cer
+lib64/hw/gps.default.so:lib64/hw/gps.universal7420.so
+lib/libwrappergps.so
+lib64/libwrappergps.so
+lib/libfloatingfeature.so
+lib64/libfloatingfeature.so
+
+# Graphics
+vendor/lib/egl/libGLES_mali.so
+vendor/lib64/egl/libGLES_mali.so
+
+# NFC
+lib/hw/nfc_nci.universal7420.so
+lib64/hw/nfc_nci.universal7420.so
+
+# Protobuf
+# Precompiled from https://gitlab.com/Exynos7580/android_external_protobuf-compat-2.6
+lib/libprotobuf-cpp-fl26.so|f2436050b38e5acb63d36ad7b24a0c2612d68749
+
+# Widevine
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
+vendor/lib64/mediadrm/libdrmclearkeyplugin.so
+lib/libstagefright_hdcp.so
+lib/liboemcrypto.so
+
+# Widevine - from angler (OPR6.170623.017)
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
